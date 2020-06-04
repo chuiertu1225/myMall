@@ -52,7 +52,6 @@ public class BrandService {
         // selective拼接更少字符串，效率更高
         System.out.println(brand);
         this.brandMapper.insertSelective(brand);
-        System.out.println(brand);
         // 新增中间表
         cids.forEach(cid -> {
             this.brandMapper.insertCategoryAndBrand(cid, brand.getId());
@@ -67,5 +66,9 @@ public class BrandService {
         cids.forEach(cid -> {
             this.brandMapper.insertCategoryAndBrand(cid, brand.getId());
         });
+    }
+    @Transactional
+    public void deleteBrand(Long bid) {
+        this.brandMapper.deleteByPrimaryKey(bid);
     }
 }
