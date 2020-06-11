@@ -71,4 +71,10 @@ public class BrandService {
     public void deleteBrand(Long bid) {
         this.brandMapper.deleteByPrimaryKey(bid);
     }
+
+    public List<Brand> queryBrandsByCid(Long cid) {
+
+        return this.brandMapper.selectBrandByCid(cid);
+    }
+
 }
